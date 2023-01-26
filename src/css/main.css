@@ -1,0 +1,87 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+/* theme color */
+.lt-blue {
+  color: #6c5ce7;
+}
+.bg-lt-blue {
+  background-color: #6c5ce7;
+}
+
+/* index.html area */
+/* ==>header */
+header {
+  background-color: #6c5ce7;
+  height: 66px;
+}
+.nav-logo {
+  height: 60px;
+  width: 60px;
+}
+
+/* search */
+#category-selection {
+  outline: none;
+}
+.search-main {
+  border-radius: 32px;
+}
+.search-main input {
+  outline: none;
+}
+/* banner */
+.banner-main {
+  height: 60vh;
+}
+.banner-img {
+  height: 60vh;
+}
+/* category */
+.category-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+/* Best doctor */
+.card-image {
+  height: 100px;
+  width: 100px;
+}
+.best-dr-card {
+  width: 14rem;
+  height: 18rem;
+}
+
+/* filter page */
+.items-filter-box {
+  overflow-y: scroll;
+}
+.filter-card {
+  width: 14rem;
+  height: 17rem;
+}
+.filter-card:hover {
+  color: #6c5ce7;
+}
+
+/* item page */
+
+.item-img {
+  height: 10rem;
+  width: 10rem;
+}
+/* order page */
+.order-item-box {
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.order-img {
+  border-radius: 5px;
+  height: 6rem;
+  width: 6rem;
+}
+/* footer */
+.footer-main {
+  background-color: #2d3436;
+}

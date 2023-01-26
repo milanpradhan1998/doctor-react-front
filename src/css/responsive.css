@@ -1,0 +1,13 @@
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+  /* best dr-card */
+  .best-dr-card {
+    width: 18rem;
+    height: 18rem;
+    text-align: center;
+  }
+  /* filter page */
+  .filter-card {
+    width: 10.8rem;
+    height: 19rem;
+  }
+}
