@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 function Home() {
   let [catagoriesList, setCatagoriesList] = useState([]);
   let getCatagoriesListServer = async () => {
-    let url = "http://localhost:6600/api/catagories";
+    let url = "http://142.93.210.241:6600/api/catagories";
     let { data } = await axios.get(url);
     setCatagoriesList([...data.catagorie]);
   };

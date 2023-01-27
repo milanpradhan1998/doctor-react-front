@@ -8,6 +8,14 @@ import jwtDecode from "jwt-decode";
 import axios from "axios";
 
 function Profile() {
+  // today date
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, "0");
+  var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+  var yyyy = today.getFullYear();
+
+  today = yyyy + "-" + mm + "-" + dd;
+
   let navigate = useNavigate();
   let [_date, setDate] = useState("");
   let getLoginDetails = () => {
@@ -55,7 +63,7 @@ function Profile() {
   let [profile, setProfile] = useState({ ...doctorProfileDefult });
 
   let getProfile = async () => {
-    let url = `http://localhost:6600/api/profile/${id}`;
+    let url = `http://142.93.210.241:6600/api/profile/${id}`;
     let { data } = await axios.get(url);
     if (data.status != false) {
       setProfile({ ...data.doctor });
@@ -82,7 +90,7 @@ function Profile() {
 
   // generate order id from razorpay
   let makePayment = async () => {
-    let url = "http://localhost:6600/api/gen-order-id-payment";
+    let url = "http://142.93.210.241:6600/api/gen-order-id-payment";
     let { data } = await axios.post(url, { amount: profile.fee });
     if (data.status === false) {
       alert("unable to generate order");
@@ -110,7 +118,7 @@ function Profile() {
           totalAmount: profile.fee,
         };
         let { data } = await axios.post(
-          "http://localhost:6600/api/verify-payment",
+          "http://142.93.210.241:6600/api/verify-payment",
           verifyPayment
         );
         if (data.status === true) {
@@ -333,7 +341,7 @@ function Profile() {
                 >
                   Close
                 </button>
-                {mobile.length === 10 ? (
+                {mobile.length === 10 && _date != "" ? (
                   <>
                     <button
                       type="button"

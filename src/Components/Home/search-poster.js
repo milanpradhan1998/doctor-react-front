@@ -1,8 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function SearchBanner(props) {
   let { catagoriesList } = props;
+  let navigate = useNavigate();
 
   return (
     <>
@@ -136,6 +138,16 @@ function SearchBanner(props) {
           </div>
         </div>
       </section>
+      <div className="col-12 col-lg-10 mx-0 m-lg-auto my-1 ">
+        <button
+          className="btn btn-outline-info"
+          onClick={() => {
+            navigate("/covid-19");
+          }}
+        >
+          Covid-19
+        </button>
+      </div>
     </>
   );
 }

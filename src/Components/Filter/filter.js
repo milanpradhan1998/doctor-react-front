@@ -10,13 +10,13 @@ function Filter() {
   let [cityList, setCityList] = useState([]);
   let [doctorList, setDoctorList] = useState([]);
   let getCityListApi = async () => {
-    let url = "http://localhost:6600/api/city";
+    let url = "http://142.93.210.241:6600/api/city";
     let { data } = await axios.get(url);
     setCityList([...data.city]);
   };
   let [filterData, setFilterData] = useState({ cetagory_id: _category_id });
   let filter = async () => {
-    let url = "http://localhost:6600/api/filter-data";
+    let url = "http://142.93.210.241:6600/api/filter-data";
     let { data } = await axios.post(url, filterData);
     if (data.status == true) {
       setDoctorList(data.filteredData);
