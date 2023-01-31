@@ -67,8 +67,8 @@ function Filter() {
           <h3>Filter area</h3>
         </div>
         <div
-          className="col-12 col-lg-10 border border-2 m-lg-auto d-flex flex-lg-row flex-column justify-content-start align-items-start p-0 p-lg-1"
-          style={{ height: "80vh" }}
+          className="col-12 col-lg-10  m-lg-auto d-flex flex-lg-row flex-column justify-content-start align-items-start p-0 p-lg-1"
+          style={{ height: "auto" }}
         >
           <QuickFilter cityList={cityList} getFilterResult={getFilterResult} />
           <DoctorResult doctorList={doctorList} />
