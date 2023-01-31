@@ -7,7 +7,11 @@
   }
   /* filter page */
   .filter-card {
-    width: 10.8rem;
-    height: 19rem;
+    width: 10rem;
+    height: 21.5rem;
+  }
+  /* filter page */
+  .items-filter-box {
+    overflow-y: scroll;
   }
 }

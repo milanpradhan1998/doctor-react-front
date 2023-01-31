@@ -13,6 +13,9 @@
 
 /* index.html area */
 /* ==>header */
+.nav-bar-box {
+  z-index: 100;
+}
 header {
   background-color: #6c5ce7;
   height: 66px;
@@ -54,8 +57,8 @@ header {
 }
 
 /* filter page */
-.items-filter-box {
-  overflow-y: scroll;
+.filter-input {
+  border: solid 2px black !important;
 }
 .filter-card {
   width: 14rem;
@@ -72,6 +75,10 @@ header {
   width: 10rem;
 }
 /* order page */
+.order-page-box {
+  height: 80vh;
+  overflow-y: scroll;
+}
 .order-item-box {
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);

@@ -22,15 +22,22 @@ function Covid() {
 
   let [district, setDistrict] = useState([]);
   let getDistrict = async () => {
-    let url = `https://cdn-api.co-vin.in/api/v2/admin/location/districts/${state_id}`;
-    let { data } = await axios.get(url);
-    setDistrict(data.districts);
+    if (state_id != "") {
+      let url = `https://cdn-api.co-vin.in/api/v2/admin/location/districts/${state_id}`;
+      let { data } = await axios.get(url);
+      setDistrict(data.districts);
+    }
   };
+  let [searchResult, setSearchResult] = useState([]);
   let getVaccine = async () => {
     if (state_id != "" && district.length != 0) {
-      let url = `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict?district_id=${district_id}&date=${today}`;
+      let url = `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict?district_id=${district_id}&date=25-01-2023`;
+
       let { data } = await axios.get(url);
-      console.log(data.sessionss); //data has gated successfully
+      if (data.sessions.length !== 0) {
+        setSearchResult(data.sessions);
+        console.log(searchResult);
+      }
     } else {
       console.log("else error");
     }
@@ -45,13 +52,13 @@ function Covid() {
   return (
     <>
       <Header />
-      <section className="row p-0 mt-1 m-0">
+      <section className="row p-0 mt-1 m-0 border border-1 border-dark">
         <div className="text-center h3">covid-19 vaccine info</div>
-        <div className="d-flex flex-column align-items-center col-12 col-lg-4 bg-info p-1 m-auto">
+        <div className="d-flex flex-column align-items-center col-12 col-lg-4 p-1 m-auto">
           {/* <!-- state --> */}
           <div className="col-10 col-lg-6">
             <select
-              className="w-100"
+              className="w-100 py-1 m-2"
               onChange={(e) => {
                 setStateId(e.target.value);
               }}
@@ -73,7 +80,7 @@ function Covid() {
           {/* <!-- district --> */}
           <div className="col-10 col-lg-6">
             <select
-              className="w-100"
+              className="w-100 py-1 m-2"
               onClick={(e) => {
                 setDistrict_id(e.target.value);
               }}
@@ -103,17 +110,34 @@ function Covid() {
       </section>
       <section className="row p-0 mt-1 m-0">
         {/* <!-- card item --> */}
-        <div className="d-flex flex-column align-items-center col-12 col-lg-4 bg-info p-1 m-auto">
+        <div className="d-flex flex-column align-items-center col-12 col-lg-4 p-1 m-auto">
           {/* <!-- item --> */}
-          <div className="card" style={{ width: "18rem" }}>
-            <div className="card-body">
-              <h5 className="card-title">name</h5>
-              <h6 className="card-subtitle mb-2 text-muted">center id:1234</h6>
-              <p className="card-text mb-0">District,Block</p>
-              <p className="card-text mb-0">vaccine</p>
-              <p className="card-text mb-0">val.slots</p>
-            </div>
-          </div>
+          {searchResult.map((val, index) => {
+            return (
+              <div className="card" style={{ width: "18rem" }} key={index}>
+                <div className="card-body">
+                  <h5 className="card-title">{val.address}</h5>
+                  <h6 className="card-subtitle mb-2 text-muted">
+                    Center id: <span>{val.center_id}</span>
+                  </h6>
+                  <p className="card-text mb-0">District,Block</p>
+                  <p className="card-text mb-0">
+                    Vaccine: <span>{val.vaccine}</span>{" "}
+                  </p>
+                  <select className="py-1 m-2">
+                    <option>-select</option>
+                    {val.slots.map((val, indx) => {
+                      return (
+                        <option key={indx}>
+                          Slot:{val.seats}, Time:{val.time}
+                        </option>
+                      );
+                    })}
+                  </select>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </section>
     </>

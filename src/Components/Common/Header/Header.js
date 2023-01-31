@@ -48,7 +48,7 @@ function Header() {
   return (
     <>
       <GoogleOAuthProvider clientId="389179238209-ltq1141n86jv10ou62t7mufkc2773naq.apps.googleusercontent.com">
-        <section className="row m-0 d-flex">
+        <section className="row m-0 d-flex col-12 position-sticky top-0 nav-bar-box">
           <header className="col-12 p-0 d-flex justify-content-between align-items-center py-1">
             <div className="d-flex mx-2">
               <img

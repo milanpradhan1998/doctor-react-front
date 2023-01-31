@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import jwtDecode from "jwt-decode";
 import Header from "../Common/Header/Header";
 import axios from "axios";
+import Footer from "../Common/Footer/footer";
 
 function OrderList() {
   let getLoginDetails = () => {
@@ -31,7 +32,7 @@ function OrderList() {
     } else {
       let url = "http://142.93.210.241:6600/api/orders-details";
       let { data } = await axios.post(url, { email: user.email });
-      setOrderList([...data.ordersInfo]);
+      setOrderList([...data.ordersInfo.reverse()]); //.reverse() revers the list
       console.log(...data.ordersInfo);
     }
   };
@@ -42,8 +43,8 @@ function OrderList() {
   return (
     <>
       <Header />
-      <section className="row m-0 mb-1 px-2 px-lg-0 p-0">
-        <div className="col-12 col-lg-4 m-auto p-0">
+      <section className="row m-0 mb-1 px-2 px-lg-0 p-0 ">
+        <div className="col-12 col-lg-4 m-auto p-0 px-2 order-page-box">
           <div className="col-12 m-auto mt-1">
             <h4>Order History</h4>
           </div>
@@ -83,6 +84,7 @@ function OrderList() {
           )}
         </div>
       </section>
+      <Footer />
     </>
   );
 }

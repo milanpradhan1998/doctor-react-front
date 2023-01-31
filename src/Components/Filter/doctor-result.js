@@ -6,7 +6,7 @@ function DoctorResult(props) {
   let navigate = useNavigate();
   return (
     <>
-      <div className="d-flex items-filter-box flex-wrap p-1 justify-content-start  col-lg-9 col-12 h-100 mx-auto bg-secondary">
+      <div className="d-flex items-filter-box flex-wrap p-1 justify-content-lg-start justify-content-between  col-lg-9 col-12 h-100 mx-auto ">
         {/* <!-- card item --> */}
         {doctorList.length != 0 ? (
           doctorList.map((val, index) => {

@@ -63,7 +63,7 @@ function Filter() {
     <>
       <Header />
       <section className="row m-0 d-flex p-1">
-        <div className="col-lg-10 col-12 m-auto">
+        <div className="col-lg-10 d-none d-lg-block col-12 m-auto ">
           <h3>Filter area</h3>
         </div>
         <div
