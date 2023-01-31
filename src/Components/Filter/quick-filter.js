@@ -177,11 +177,11 @@ function QuickFilter(props) {
       </div>
       {/* for small screen */}
       <div className="d-lg-none d-block col-12 mb-2">
-        <div class="accordion accordion-flush" id="accordionFlushExample">
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="flush-headingOne">
+        <div className="accordion accordion-flush" id="accordionFlushExample">
+          <div className="accordion-item">
+            <h2 className="accordion-header" id="flush-headingOne">
               <button
-                class="accordion-button collapsed"
+                className="accordion-button collapsed"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#flush-collapseOne"
@@ -193,11 +193,11 @@ function QuickFilter(props) {
             </h2>
             <div
               id="flush-collapseOne"
-              class="accordion-collapse collapse "
+              className="accordion-collapse collapse "
               aria-labelledby="flush-headingOne"
               data-bs-parent="#accordionFlushExample"
             >
-              <div class="accordion-body">
+              <div className="accordion-body">
                 <div id="filter">
                   <h5>Location</h5>
                   <select
