@@ -65,7 +65,7 @@ function Header() {
                   data-bs-toggle="modal"
                   data-bs-target="#loginModal"
                 >
-                  <i className="fa-solid fa-arrow-right-to-bracket"></i> Login
+                  <i className="fa-solid fa-arrow-right-to-bracket"></i> Login-
                 </button>
               ) : (
                 <>
