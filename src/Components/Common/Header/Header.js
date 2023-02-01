@@ -47,7 +47,7 @@ function Header() {
   };
   return (
     <>
-      <GoogleOAuthProvider clientId="389179238209-ltq1141n86jv10ou62t7mufkc2773naq.apps.googleusercontent.com">
+      <GoogleOAuthProvider clientId="757702982869-ll6f9qh814ovj37ce8ubqplgn2inmaod.apps.googleusercontent.com">
         <section className="row m-0 d-flex col-12 position-sticky top-0 nav-bar-box">
           <header className="col-12 p-0 d-flex justify-content-between align-items-center py-1">
             <div className="d-flex mx-2">
@@ -65,7 +65,7 @@ function Header() {
                   data-bs-toggle="modal"
                   data-bs-target="#loginModal"
                 >
-                  <i className="fa-solid fa-arrow-right-to-bracket"></i> Login-
+                  <i className="fa-solid fa-arrow-right-to-bracket"></i> Login
                 </button>
               ) : (
                 <>
@@ -90,34 +90,31 @@ function Header() {
               )}
             </div>
           </header>
-          {/* login model */}
-          <div
-            className="modal fade"
-            id="loginModal"
-            tabIndex="-1"
-            aria-labelledby="exampleModalLabel"
-            aria-hidden="true"
-          >
-            <div className="modal-dialog">
-              <div className="modal-content">
-                <div className="modal-header">
-                  <h5 className="modal-title" id="exampleModalLabel">
-                    Login Account
-                  </h5>
-                  <button
-                    type="button"
-                    className="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
-                </div>
-                <div className="modal-body">
-                  <GoogleLogin onSuccess={onSuccess} onError={onError} />
-                </div>
+        </section>
+        {/* login model */}
+        <div
+          className="modal fade"
+          id="loginModal"
+          tabIndex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-header">
+                <button
+                  type="button"
+                  className="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div className="modal-body">
+                <GoogleLogin onSuccess={onSuccess} onError={onError} />
               </div>
             </div>
           </div>
-        </section>
+        </div>
       </GoogleOAuthProvider>
     </>
   );
