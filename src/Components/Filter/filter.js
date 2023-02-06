@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Loader from "../Common/Loading/Loader";
 import QuickFilter from "./quick-filter";
 import DoctorResult from "./doctor-result";
 import Header from "../Common/Header/Header";
@@ -6,23 +7,25 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 
 function Filter() {
+  let [loader, setLoader] = useState(false); //LOADER
   let { _category_id } = useParams();
   let [cityList, setCityList] = useState([]);
   let [doctorList, setDoctorList] = useState([]);
   let getCityListApi = async () => {
-    let url = "http://142.93.210.241:6600/api/city";
+    let url = "https://139.59.2.113:6600/api/city";
     let { data } = await axios.get(url);
     setCityList([...data.city]);
   };
   let [filterData, setFilterData] = useState({ cetagory_id: _category_id });
   let filter = async () => {
-    let url = "http://142.93.210.241:6600/api/filter-data";
+    let url = "https://139.59.2.113:6600/api/filter-data";
     let { data } = await axios.post(url, filterData);
     if (data.status == true) {
       setDoctorList(data.filteredData);
     } else {
       console.log("no data");
     }
+    setLoader(false); //LOADER
   };
   let getFilterResult = (event, type) => {
     let value = event.target.value;
@@ -52,15 +55,18 @@ function Filter() {
     setFilterData({ ...filterData });
   };
   useEffect(() => {
+    setLoader(true); //LOADER
     filter();
   }, [filterData]);
   useEffect(() => {
+    setLoader(true); //LOADER
     filter();
     getCityListApi();
   }, []);
 
   return (
     <>
+      <Loader loader={loader} />
       <Header />
       <section className="row m-0 d-flex p-1">
         <div className="col-lg-10 d-none d-lg-block col-12 m-auto ">

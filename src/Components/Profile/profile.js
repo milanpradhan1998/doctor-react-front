@@ -63,7 +63,7 @@ function Profile() {
   let [profile, setProfile] = useState({ ...doctorProfileDefult });
 
   let getProfile = async () => {
-    let url = `http://142.93.210.241:6600/api/profile/${id}`;
+    let url = `https://139.59.2.113:6600/api/profile/${id}`;
     let { data } = await axios.get(url);
     if (data.status != false) {
       setProfile({ ...data.doctor });
@@ -90,7 +90,7 @@ function Profile() {
 
   // generate order id from razorpay
   let makePayment = async () => {
-    let url = "http://142.93.210.241:6600/api/gen-order-id-payment";
+    let url = "https://139.59.2.113:6600/api/gen-order-id-payment";
     let { data } = await axios.post(url, { amount: profile.fee });
     if (data.status === false) {
       alert("unable to generate order");
@@ -118,7 +118,7 @@ function Profile() {
           totalAmount: profile.fee,
         };
         let { data } = await axios.post(
-          "http://142.93.210.241:6600/api/verify-payment",
+          "https://139.59.2.113:6600/api/verify-payment",
           verifyPayment
         );
         if (data.status === true) {

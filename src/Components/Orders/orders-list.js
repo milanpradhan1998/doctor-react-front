@@ -30,7 +30,7 @@ function OrderList() {
     if (user == false) {
       console.log("login to get list");
     } else {
-      let url = "http://142.93.210.241:6600/api/orders-details";
+      let url = "https://139.59.2.113:6600/api/orders-details";
       let { data } = await axios.post(url, { email: user.email });
       setOrderList([...data.ordersInfo.reverse()]); //.reverse() revers the list
       console.log(...data.ordersInfo);

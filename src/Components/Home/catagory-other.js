@@ -7,7 +7,7 @@ function CatagoryOthers(props) {
   let { catagoriesList } = props;
   let [bestDoctorsList, setBestDoctorsList] = useState([]);
   let getBestDoctorsList = async () => {
-    let url = "http://142.93.210.241:6600/api/best-doctors";
+    let url = "https://139.59.2.113:6600/api/best-doctors";
     let { data } = await axios.get(url);
     setBestDoctorsList([...data.doctors]);
   };

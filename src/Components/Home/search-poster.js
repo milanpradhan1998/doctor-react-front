@@ -5,7 +5,21 @@ import { useNavigate } from "react-router-dom";
 function SearchBanner(props) {
   let { catagoriesList } = props;
   let navigate = useNavigate();
+  let [searchCategoryID, setSearchCategoryID] = useState(0);
+  let [searchInput, setSearchInput] = useState("");
 
+  let getSelectValue = (e) => {
+    let { value } = e.target;
+    setSearchCategoryID(value);
+  };
+  let getSearch = (e) => {
+    let { value } = e.target;
+    setSearchInput(value);
+    console.log(searchInput);
+  };
+  useEffect(() => {
+    setSearchInput("");
+  }, [searchCategoryID]);
   return (
     <>
       {/* <!-- search area --> */}
@@ -15,8 +29,9 @@ function SearchBanner(props) {
             name="category"
             id="category-selection"
             className="w-100 my-1 border border-0"
+            onChange={getSelectValue}
           >
-            <option value="">-Select-</option>
+            <option value="0">-Select-</option>
             {catagoriesList.map((val, ind) => {
               return (
                 <option key={ind} value={val.cetagory_id}>
@@ -33,6 +48,9 @@ function SearchBanner(props) {
             name="search"
             id="search"
             placeholder="Search Doctors"
+            disabled={searchCategoryID == 0 ? true : false}
+            value={searchInput}
+            onChange={getSearch}
           />
           <button className="bg-lt-blue text-white ms-1 py-1 px-2 border border-2 border-dark rounded-circle fs-6 my-auto btn btn-outline-success">
             <i className="fa-solid fa-magnifying-glass"></i>
