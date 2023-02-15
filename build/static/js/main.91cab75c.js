@@ -15800,9 +15800,9 @@
                     switch ((e.prev = e.next)) {
                       case 0:
                         return (
-                          "https://139.59.2.113:6600/api/best-doctors",
+                          "http://localhost:6600/api/best-doctors",
                           (e.next = 3),
-                          Bn.get("https://139.59.2.113:6600/api/best-doctors")
+                          Bn.get("http://localhost:6600/api/best-doctors")
                         );
                       case 3:
                         (t = e.sent), (n = t.data), l(u(n.doctors));
@@ -15958,9 +15958,9 @@
                     switch ((e.prev = e.next)) {
                       case 0:
                         return (
-                          "https://139.59.2.113:6600/api/catagories",
+                          "http://localhost:6600/api/catagories",
                           (e.next = 3),
-                          Bn.get("https://139.59.2.113:6600/api/catagories")
+                          Bn.get("http://localhost:6600/api/catagories")
                         );
                       case 3:
                         (t = e.sent), (n = t.data), r(u(n.catagorie));
@@ -16544,9 +16544,9 @@
                     switch ((e.prev = e.next)) {
                       case 0:
                         return (
-                          "https://139.59.2.113:6600/api/city",
+                          "http://localhost:6600/api/city",
                           (e.next = 3),
-                          Bn.get("https://139.59.2.113:6600/api/city")
+                          Bn.get("http://localhost:6600/api/city")
                         );
                       case 3:
                         (t = e.sent), (n = t.data), a(u(n.city));
@@ -16573,12 +16573,9 @@
                     switch ((e.prev = e.next)) {
                       case 0:
                         return (
-                          "https://139.59.2.113:6600/api/filter-data",
+                          "http://localhost:6600/api/filter-data",
                           (e.next = 3),
-                          Bn.post(
-                            "https://139.59.2.113:6600/api/filter-data",
-                            p
-                          )
+                          Bn.post("http://localhost:6600/api/filter-data", p)
                         );
                       case 3:
                         (t = e.sent),
@@ -16689,10 +16686,10 @@
                           break;
                         case 4:
                           return (
-                            "https://139.59.2.113:6600/api/orders-details",
+                            "http://localhost:6600/api/orders-details",
                             (e.next = 7),
                             Bn.post(
-                              "https://139.59.2.113:6600/api/orders-details",
+                              "http://localhost:6600/api/orders-details",
                               { email: n.email }
                             )
                           );
@@ -16800,9 +16797,7 @@
                     switch ((e.prev = e.next)) {
                       case 0:
                         return (
-                          (t = "https://139.59.2.113:6600/api/profile/".concat(
-                            p
-                          )),
+                          (t = "http://localhost:6600/api/profile/".concat(p)),
                           (e.next = 3),
                           Bn.get(t)
                         );
@@ -16874,10 +16869,10 @@
                     switch ((e.prev = e.next)) {
                       case 0:
                         return (
-                          "https://139.59.2.113:6600/api/gen-order-id-payment",
+                          "http://localhost:6600/api/gen-order-id-payment",
                           (e.next = 3),
                           Bn.post(
-                            "https://139.59.2.113:6600/api/gen-order-id-payment",
+                            "http://localhost:6600/api/gen-order-id-payment",
                             { amount: y.fee }
                           )
                         );
@@ -16922,7 +16917,7 @@
                                             }),
                                             (e.next = 3),
                                             Bn.post(
-                                              "https://139.59.2.113:6600/api/verify-payment",
+                                              "http://localhost:6600/api/verify-payment",
                                               n
                                             )
                                           );

@@ -1,8 +1,8 @@
 function Footer() {
   return (
     <>
-      <section className="footer-main px-2">
-        <div className="d-flex flex-column flex-lg-row p-2 text-white justify-content-lg-between align-items-lg-center">
+      <section className="footer-main px-2 col-12 mt-auto">
+        <div className="d-flex  flex-row p-2 text-white justify-content-between align-items-center">
           <div>
             <ul className="m-0 fs-6">
               <li>Home</li>

@@ -5,7 +5,7 @@ function QuickFilter(props) {
   return (
     <>
       {/* for large screen */}
-      <div className=" d-none d-lg-block col-lg-2 col-12 p-2 h-100 filter-input">
+      <div className=" d-none d-lg-block col-lg-2 col-12 p-2 h-100 border border-2 border-dark filter-input position-relative">
         <div id="filter">
           <h5>Location</h5>
           <select
@@ -176,7 +176,7 @@ function QuickFilter(props) {
         </div>
       </div>
       {/* for small screen */}
-      <div className="d-lg-none d-block col-12 mb-2">
+      <div className="d-lg-none d-block col-12 mb-2 mob-filter">
         <div className="accordion accordion-flush" id="accordionFlushExample">
           <div className="accordion-item">
             <h2 className="accordion-header" id="flush-headingOne">

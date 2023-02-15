@@ -5,6 +5,7 @@ import DoctorResult from "./doctor-result";
 import Header from "../Common/Header/Header";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import Footer from "../Common/Footer/footer";
 
 function Filter() {
   let [loader, setLoader] = useState(false); //LOADER
@@ -12,13 +13,13 @@ function Filter() {
   let [cityList, setCityList] = useState([]);
   let [doctorList, setDoctorList] = useState([]);
   let getCityListApi = async () => {
-    let url = "https://139.59.2.113:6600/api/city";
+    let url = "http://localhost:6600/api/city";
     let { data } = await axios.get(url);
     setCityList([...data.city]);
   };
   let [filterData, setFilterData] = useState({ cetagory_id: _category_id });
   let filter = async () => {
-    let url = "https://139.59.2.113:6600/api/filter-data";
+    let url = "http://localhost:6600/api/filter-data";
     let { data } = await axios.post(url, filterData);
     if (data.status == true) {
       setDoctorList(data.filteredData);
@@ -74,12 +75,13 @@ function Filter() {
         </div>
         <div
           className="col-12 col-lg-10  m-lg-auto d-flex flex-lg-row flex-column justify-content-start align-items-start p-0 p-lg-1"
-          style={{ height: "auto" }}
+          style={{ height: "75vh" }}
         >
           <QuickFilter cityList={cityList} getFilterResult={getFilterResult} />
           <DoctorResult doctorList={doctorList} />
         </div>
       </section>
+      <Footer />
     </>
   );
 }

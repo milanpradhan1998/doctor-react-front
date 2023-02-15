@@ -10,7 +10,7 @@ import Error_404 from "./Components/404-page/404-page";
 function App() {
   return (
     <>
-      <main className="container-fluid p-0">
+      <main className="container-fluid p-0 ">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/filter/:_category_id/:id" element={<Filter />} />

@@ -2,11 +2,10 @@ import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 import { useNavigate } from "react-router-dom";
 import jwtDecode from "jwt-decode";
 import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
 
 function Header() {
   let navigate = useNavigate();
-  // let navigate = useNavigate();
+
   let getLoginDetails = () => {
     // read local storage
     let logToken = localStorage.getItem("logToken");
@@ -55,6 +54,9 @@ function Header() {
                 className="nav-logo ms-2 bg-white rounded-circle my-1"
                 src="/images/logo/icon-sq-512x.png"
                 alt="logo image"
+                onClick={() => {
+                  navigate("/");
+                }}
               />
             </div>
             <div className="d-lg-flex justify-content-end">

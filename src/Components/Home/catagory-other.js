@@ -7,7 +7,7 @@ function CatagoryOthers(props) {
   let { catagoriesList } = props;
   let [bestDoctorsList, setBestDoctorsList] = useState([]);
   let getBestDoctorsList = async () => {
-    let url = "https://139.59.2.113:6600/api/best-doctors";
+    let url = "http://localhost:6600/api/best-doctors";
     let { data } = await axios.get(url);
     setBestDoctorsList([...data.doctors]);
   };
@@ -59,6 +59,9 @@ function CatagoryOthers(props) {
               <div
                 className="card mb-2 mb-lg-0 category-card best-dr-card"
                 key={ind}
+                onClick={() => {
+                  navigate("/profile/" + val.profile_id);
+                }}
               >
                 <img
                   src={val.p_image}

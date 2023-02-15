@@ -12,6 +12,12 @@
   }
   /* filter page */
   .items-filter-box {
-    overflow-y: scroll;
+    border: solid 2px black;
+    height: 65vh !important;
+    margin-top: 65px;
+    overflow-y: scroll !important;
+  }
+  .item-box {
+    height: auto;
   }
 }

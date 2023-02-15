@@ -3,6 +3,24 @@
   margin: 0px;
   padding: 0px;
 }
+/* SCROLL BAR  */
+::-webkit-scrollbar {
+  width: 8px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
 /* theme color */
 .lt-blue {
   color: #6c5ce7;
@@ -44,6 +62,18 @@ header {
 .search-main input {
   outline: none;
 }
+.search-result-box {
+  z-index: 2;
+  max-height: 30vh;
+  overflow-y: scroll;
+  top: 100%;
+  width: 90%;
+}
+.search-result-box div img {
+  height: 4rem;
+  width: 4rem;
+  border-radius: 5px;
+}
 /* banner */
 .banner-main {
   height: 60vh;
@@ -52,6 +82,10 @@ header {
   height: 60vh;
 }
 /* category */
+.items-filter-box {
+  height: 70vh;
+  overflow-y: scroll !important;
+}
 .category-card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -64,6 +98,7 @@ header {
   width: 14rem;
   height: 18rem;
 }
+important
 
 /* filter page */
 .filter-input {
@@ -76,8 +111,15 @@ header {
 .filter-card:hover {
   color: #6c5ce7;
 }
+.mob-filter {
+  z-index: 2;
+  position: absolute;
+}
 
 /* item page */
+.item-box {
+  height: 75vh;
+}
 
 .item-img {
   height: 10rem;

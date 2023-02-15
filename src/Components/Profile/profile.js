@@ -6,6 +6,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import jwtDecode from "jwt-decode";
 import axios from "axios";
+import Footer from "../Common/Footer/footer";
 
 function Profile() {
   // today date
@@ -63,7 +64,7 @@ function Profile() {
   let [profile, setProfile] = useState({ ...doctorProfileDefult });
 
   let getProfile = async () => {
-    let url = `https://139.59.2.113:6600/api/profile/${id}`;
+    let url = `http://localhost:6600/api/profile/${id}`;
     let { data } = await axios.get(url);
     if (data.status != false) {
       setProfile({ ...data.doctor });
@@ -90,7 +91,7 @@ function Profile() {
 
   // generate order id from razorpay
   let makePayment = async () => {
-    let url = "https://139.59.2.113:6600/api/gen-order-id-payment";
+    let url = "http://localhost:6600/api/gen-order-id-payment";
     let { data } = await axios.post(url, { amount: profile.fee });
     if (data.status === false) {
       alert("unable to generate order");
@@ -118,7 +119,7 @@ function Profile() {
           totalAmount: profile.fee,
         };
         let { data } = await axios.post(
-          "https://139.59.2.113:6600/api/verify-payment",
+          "http://localhost:6600/api/verify-payment",
           verifyPayment
         );
         if (data.status === true) {
@@ -153,8 +154,8 @@ function Profile() {
   return (
     <>
       <Header />
-      <section className="row m-0 mb-1 px-2 px-lg-0">
-        <div className="item-box category-card col-12 col-lg-6 m-auto p-1 d-flex flex-column flex-lg-row">
+      <section className="row m-0 mb-1 px-2 px-lg-0 item-box">
+        <div className=" category-card col-12 col-lg-6 m-auto p-1 d-flex flex-column flex-lg-row">
           <div className="me-2 d-flex flex-column align-items-center">
             <div>
               <img className="item-img" src={profile.p_image} alt="" />
@@ -460,6 +461,7 @@ function Profile() {
           </div>
         </div>
       </section>
+      <Footer />
     </>
   );
 }

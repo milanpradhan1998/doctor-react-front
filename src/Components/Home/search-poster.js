@@ -7,15 +7,25 @@ function SearchBanner(props) {
   let navigate = useNavigate();
   let [searchCategoryID, setSearchCategoryID] = useState(0);
   let [searchInput, setSearchInput] = useState("");
+  let [searchResult, setSearchResult] = useState([]);
 
   let getSelectValue = (e) => {
     let { value } = e.target;
     setSearchCategoryID(value);
   };
-  let getSearch = (e) => {
+  let getSearch = async (e) => {
     let { value } = e.target;
     setSearchInput(value);
-    console.log(searchInput);
+    if (value != "") {
+      let url = "http://localhost:6600/api/getSearchData";
+      let { data } = await axios.post(url, {
+        catagories_id: searchCategoryID,
+        search: searchInput,
+      });
+      setSearchResult(data.doctors);
+    } else {
+      setSearchResult([]);
+    }
   };
   useEffect(() => {
     setSearchInput("");
@@ -41,7 +51,7 @@ function SearchBanner(props) {
             })}
           </select>
         </div>
-        <div className="search-main col-lg-3 col-11 py-1 d-flex ms-lg-1 border border-2 my-1 justify-content-between align-items-center">
+        <div className="position-relative search-main col-lg-3 col-11 py-1 d-flex ms-lg-1 border border-2 my-1 justify-content-between align-items-center">
           <input
             className="my-auto fs-5 border border-0"
             type="search"
@@ -52,9 +62,37 @@ function SearchBanner(props) {
             value={searchInput}
             onChange={getSearch}
           />
-          <button className="bg-lt-blue text-white ms-1 py-1 px-2 border border-2 border-dark rounded-circle fs-6 my-auto btn btn-outline-success">
+          <button className="d-none bg-lt-blue text-white ms-1 py-1 px-2 border border-2 border-dark rounded-circle fs-6 my-auto btn btn-outline-success">
             <i className="fa-solid fa-magnifying-glass"></i>
           </button>
+          <div className="position-absolute bg-white px-1  search-result-box">
+            {searchResult.length != 0 ? (
+              searchResult.map((val, indx) => {
+                return (
+                  <div
+                    className="d-flex "
+                    key={indx}
+                    value={val._id}
+                    onClick={() => {
+                      navigate("/profile/" + val._id);
+                    }}
+                  >
+                    <img className="me-2" src={val.p_image} />
+                    <div>
+                      <p className="mb-0 fw-bold">
+                        DR.<span>{val.name}</span>
+                      </p>
+                      <p className="mb-0 font-monospace">
+                        {val.cetagory},{val.city}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })
+            ) : (
+              <></>
+            )}
+          </div>
         </div>
       </section>
       {/* <!-- banner area --> */}
